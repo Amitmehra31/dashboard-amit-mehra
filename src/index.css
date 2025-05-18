@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 0 102 255;
+    --color-primary-light: 51 132 255;
+    --color-primary-dark: 0 71 179;
+  }
+}
+
+.theme-transition,
+.theme-transition * {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.theme-transition-disabled {
+  transition: none !important;
+}
+
+.light {
+  --bg-default: 255 255 255;
+  --bg-paper: 248 250 252;
+  --bg-subtle: 241 245 249;
+  --text-primary: 15 23 42;
+  --text-secondary: 71 85 105;
+  --text-disabled: 148 163 184;
+  --border-light: 226 232 240;
+  --border-main: 203 213 225;
+  --border-dark: 148 163 184;
+}
+
+.dark {
+  --bg-default: 15 23 42;
+  --bg-paper: 30 41 59;
+  --bg-subtle: 51 65 85;
+  --text-primary: 248 250 252;
+  --text-secondary: 203 213 225;
+  --text-disabled: 100 116 139;
+  --border-light: 51 65 85;
+  --border-main: 71 85 105;
+  --border-dark: 100 116 139;
+}
+
+@layer utilities {
+  .bg-theme {
+    @apply bg-[rgb(var(--bg-default))] dark:bg-[rgb(var(--bg-default))];
+  }
+  
+  .bg-theme-paper {
+    @apply bg-[rgb(var(--bg-paper))] dark:bg-[rgb(var(--bg-paper))];
+  }
+  
+  .text-theme-primary {
+    @apply text-[rgb(var(--text-primary))] dark:text-[rgb(var(--text-primary))];
+  }
+  
+  .text-theme-secondary {
+    @apply text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-secondary))];
+  }
+  
+  .text-theme-disabled {
+    @apply text-[rgb(var(--text-disabled))] dark:text-[rgb(var(--text-disabled))];
+  }
+  
+  .border-theme {
+    @apply border-[rgb(var(--border-main))] dark:border-[rgb(var(--border-main))];
+  }
+  
+  .border-theme-light {
+    @apply border-[rgb(var(--border-light))] dark:border-[rgb(var(--border-light))];
+  }
+  
+  .border-theme-dark {
+    @apply border-[rgb(var(--border-dark))] dark:border-[rgb(var(--border-dark))];
+  }
+}
